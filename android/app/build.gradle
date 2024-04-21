@@ -26,6 +26,8 @@ android {
     namespace "com.example.climb_up"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
+    compileSdkVersion 34
+
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
