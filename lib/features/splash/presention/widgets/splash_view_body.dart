@@ -65,7 +65,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
                 child: CustomButton(
                   textColor: Colors.white,
                   onPressed: () {
-                    GoRouter.of(context).replace(AppRouter.kLogInView); // Use replace instead of push
+                    GoRouter.of(context).push(
+                        AppRouter.kLogInView); // Use replace instead of push
                   },
                   haveBorder: true,
                   color: AppColors.kPrimaryColor,
@@ -83,7 +84,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
                 child: CustomButton(
                   textColor: AppColors.kPrimaryColor,
                   onPressed: () {
-                    GoRouter.of(context).replace(AppRouter.kSignUp); // Use replace instead of push
+                    GoRouter.of(context)
+                        .push(AppRouter.kSignUp); // Use replace instead of push
                   },
                   color: Colors.white,
                   labelName: 'Sign Up',

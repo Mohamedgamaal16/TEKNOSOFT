@@ -83,6 +83,8 @@ static TextStyle poppinsStyleSemiBold16(BuildContext context) {
       fontWeight: FontWeight.w700,
     );
   }
+
+  static interStyleSemiBold16(BuildContext context) {}
 }
 
 double getResponsiveFontSize(BuildContext context, {required double fontSize}) {
