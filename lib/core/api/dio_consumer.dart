@@ -1,19 +1,16 @@
 import 'package:climb_up/core/api/api_consumer.dart';
 import 'package:climb_up/core/api/api_interceptors.dart';
+import 'package:climb_up/core/api/endpoint.dart';
 import 'package:climb_up/core/errors/exceptions.dart';
 import 'package:dio/dio.dart';
 
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
-  final String baseUrl;
-  final String exceptionType;
   DioConsumer({
     required this.dio,
-    required this.exceptionType,
-    required this.baseUrl,
   }) : super(dio) {
-    dio.options.baseUrl = baseUrl;
+    dio.options.baseUrl = EndPoint.baseUrl;
     dio.interceptors.add(ApiInterceptor());
     dio.interceptors.add(LogInterceptor(
       request: true,
@@ -39,11 +36,10 @@ class DioConsumer extends ApiConsumer {
       );
       return response.data;
     } on DioException catch (e) {
-      if (exceptionType == 'News') {
-        handleNewsDioExceptions(e);
-      } else {
-        handleRegesterDioExceptions(e);
-      }
+      
+   
+        handleDioExceptions(e);
+      
     }
   }
 
@@ -62,11 +58,11 @@ class DioConsumer extends ApiConsumer {
       );
       return response.data;
     } on DioException catch (e) {
-      if (exceptionType == 'News') {
-        handleNewsDioExceptions(e);
-      } else {
-        handleRegesterDioExceptions(e);
-      }
+      
+        handleDioExceptions(e);
+      
+        
+      
     }
   }
 
@@ -85,11 +81,9 @@ class DioConsumer extends ApiConsumer {
       );
       return response.data;
     } on DioException catch (e) {
-      if (exceptionType == 'News') {
-        handleNewsDioExceptions(e);
-      } else {
-        handleRegesterDioExceptions(e);
-      }
+      
+        handleDioExceptions(e);
+      
     }
   }
 
@@ -108,11 +102,9 @@ class DioConsumer extends ApiConsumer {
       );
       return response.data;
     } on DioException catch (e) {
-      if (exceptionType == 'News') {
-        handleNewsDioExceptions(e);
-      } else {
-        handleRegesterDioExceptions(e);
-      }
+      
+        handleDioExceptions(e);
+      
     }
   }
 }

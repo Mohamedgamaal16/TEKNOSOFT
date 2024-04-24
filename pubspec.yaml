@@ -95,6 +95,10 @@ flutter:
     - family: Inter
       fonts:
         - asset: assets/fonts/Inter-Regular.ttf
+    - family: MyFlutterApp
+      fonts:
+        - asset: assets/fonts/MyFlutterApp.ttf
+        
        
   #
   # For details regarding fonts from package dependencies,

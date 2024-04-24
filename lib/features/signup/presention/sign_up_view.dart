@@ -24,7 +24,7 @@ class SignUpView extends StatelessWidget {
               color: AppColors.kPrimaryColor,
             )),
       ),
-      body: const SafeArea(child: SignUpViewBody()),
+      body: const SafeArea(child: SingleChildScrollView(child: SignUpViewBody())),
     );
   }
 }

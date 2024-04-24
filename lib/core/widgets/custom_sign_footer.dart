@@ -14,13 +14,13 @@ final void Function()? onTap;
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Don't have an account?",
+          sentence,
           style: AppStyles.poppinsStyleRegular14(context),
         ),
         GestureDetector(
           onTap: onTap,
           child: Text(
-            'Sign Up',
+            pageName,
             style: AppStyles.poppinsStyleBold14(context),
           ),
         )

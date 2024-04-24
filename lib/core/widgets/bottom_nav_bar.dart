@@ -1,0 +1,88 @@
+import 'package:climb_up/core/utils/app_styles.dart';
+import 'package:climb_up/core/utils/constants.dart';
+import 'package:climb_up/features/signin/presention/sign_in_view.dart';
+import 'package:climb_up/features/signup/presention/sign_up_view.dart';
+import 'package:climb_up/icons.dart';
+import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+
+class CustomBottomNavigationBar extends StatefulWidget {
+  const CustomBottomNavigationBar({super.key});
+
+  @override
+  State<CustomBottomNavigationBar> createState() =>
+      _CustomBottomNavigationBarState();
+}
+
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  int _currentIndex = 0;
+  final List<Widget> _widgetsOptions = [
+    const SignInView(),
+    const SignUpView(),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child:
+                  _widgetsOptions.elementAt(_currentIndex), // Added line here
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 10, bottom: 17, left: 16, right: 16),
+              child: FittedBox(
+                child: GNav(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  activeColor: Colors.white,
+                  textStyle: AppStyles.poppinsStyleMedium12(context),
+                  gap: 6,
+                  tabBackgroundColor: AppColors.kPrimaryColor,
+                  onTabChange: _changePages,
+                  tabs: const [
+                    GButton(
+                        icon: MyFlutterApp.li_home,
+                        text: 'Home',
+                        iconColor: Colors.black,
+                        ),
+                    GButton(
+                        icon: MyFlutterApp.ph_heart_fill,
+                        text: 'Explore',
+                        iconColor: Colors.black,
+                        ),
+                    GButton(
+                      icon: MyFlutterApp.simple_line_icons_plus,
+                      
+                      text: 'Profile',
+                      iconColor: Colors.black,
+                    ),
+                    GButton(
+                        icon: MyFlutterApp.li_clock,
+                        text: 'Profile',
+                        iconColor: Colors.black,
+                       ),
+                    GButton(
+                      icon: MyFlutterApp.li_user,
+                      text: 'Profile',
+                      iconColor: Colors.black,
+                    ),
+                  ],
+                  selectedIndex: _currentIndex,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _changePages(int value) {
+    setState(() {
+      _currentIndex = value;
+    });
+  }
+}

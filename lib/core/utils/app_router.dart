@@ -1,3 +1,4 @@
+import 'package:climb_up/core/widgets/bottom_nav_bar.dart';
 import 'package:climb_up/features/signin/presention/sign_in_view.dart';
 import 'package:climb_up/features/signup/presention/sign_up_view.dart';
 import 'package:climb_up/features/splash/presention/splash_view.dart';
@@ -23,13 +24,11 @@ abstract class AppRouter {
       path: kSignUp,
       builder: (context, state) => const SignUpView(),
     ),
-    // GoRoute(
-      // path: kBottomNavBar,
-      // path: kHomeView,
-      // builder: (context, state) => const CustomBottomNavigationBar(),
-            // builder: (context, state) => const HomeView(),
-
-    // ),
+    GoRoute(
+      path: kBottomNavBar,
+      builder: (context, state) => const CustomBottomNavigationBar(),
+         
+    ),
     
   ]);
 }
