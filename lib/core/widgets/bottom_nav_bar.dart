@@ -53,17 +53,17 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   ),
                   GButton(
                     icon: FontAwesomeIcons.magnifyingGlass,
-                    text: 'Explore',
+                    text: 'Search',
                     iconColor: Colors.black,
                   ),
                   GButton(
                     icon: MyFlutterApp.simple_line_icons_plus,
-                    text: 'Profile',
+                    text: 'Add Post',
                     iconColor: Colors.black,
                   ),
                   GButton(
                     icon: MyFlutterApp.ph_heart_fill,
-                    text: 'Profile',
+                    text: 'Favorite',
                     iconColor: Colors.black,
                   ),
                   GButton(
