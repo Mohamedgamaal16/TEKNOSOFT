@@ -1,20 +1,23 @@
 import 'package:climb_up/core/utils/app_styles.dart';
+import 'package:climb_up/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
     Key? key,
-    required this.color,
+    this.color = AppColors.kPrimaryColor,
     required this.labelName,
-    required this.textColor,
+    this.textColor = Colors.white,
     this.onPressed,
     this.haveBorder = false,
+    this.borderRadius = 15,
   }) : super(key: key);
 
   final Color color, textColor;
   final String labelName;
   final void Function()? onPressed;
   final bool haveBorder;
+  final double borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +26,10 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(borderRadius),
             side: haveBorder
-                ? const BorderSide(color: Colors.white) // Set border color to white
+                ? const BorderSide(
+                    color: Colors.white) // Set border color to white
                 : BorderSide.none, // No border
           ),
           elevation: 0,
