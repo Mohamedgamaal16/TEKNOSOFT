@@ -19,10 +19,13 @@ class SubmitButtons extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const CustomButton(
-            borderRadius: 8,
-           
-            labelName: 'Create',
+          SizedBox(
+            height: MediaQuery.of(context).size.height*.05,
+            child: const CustomButton(
+              borderRadius: 8,
+             
+              labelName: 'Create',
+            ),
           )
         ],
       ),

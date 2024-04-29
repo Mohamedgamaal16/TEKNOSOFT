@@ -10,14 +10,14 @@ class CustomInputField extends StatefulWidget {
     this.suffixIcon = false,
     this.isDense,
     this.obscureText = false,
-    this.controller,
+    this.controller,  this.minLines=1,  this.maxLines=1, 
   });
 
   final String labelText, hintText;
   final bool suffixIcon, obscureText;
   final bool? isDense;
   final TextEditingController? controller;
-
+final int minLines,maxLines;
   @override
   State<CustomInputField> createState() => _CustomInputFieldState();
 }
@@ -33,6 +33,8 @@ class _CustomInputFieldState extends State<CustomInputField> {
         borderRadius: BorderRadius.circular(10),
       )),
       child: TextFormField(
+        minLines: widget.minLines ,
+        maxLines:widget.maxLines ,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (textValue) {
           if (textValue == null || textValue.isEmpty) {

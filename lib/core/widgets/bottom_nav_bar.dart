@@ -1,6 +1,8 @@
 import 'package:climb_up/core/utils/app_styles.dart';
 import 'package:climb_up/core/utils/constants.dart';
+import 'package:climb_up/features/add_post/add_post_view.dart';
 import 'package:climb_up/features/home/presention/home_view.dart';
+import 'package:climb_up/features/profile/presentation/profile_view.dart';
 import 'package:climb_up/features/signin/presention/sign_in_view.dart';
 import 'package:climb_up/features/signup/presention/sign_up_view.dart';
 import 'package:climb_up/icons.dart';
@@ -21,9 +23,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   final List<Widget> _widgetsOptions = [
     const HomeView(),
     const SignUpView(),
-    const SignInView(),
+    const AddPostView(),
     const SignUpView(),
-    const HomeView(),
+    const ProfileView(),
   ];
   @override
   Widget build(BuildContext context) {

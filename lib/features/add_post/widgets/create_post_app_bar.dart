@@ -9,34 +9,18 @@ class CreatePostAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          width: double.infinity,
-          child: Stack(
-            children: [
-              const Icon(
-                FontAwesomeIcons.x,
+    return 
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Create Post',
+              textAlign: TextAlign.center,
+              style: AppStyles.poppinsStyleSemiBold16(context).copyWith(
+                color: Colors.black,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Create Post',
-                    textAlign: TextAlign.center,
-                    style: AppStyles.poppinsStyleSemiBold16(context).copyWith(
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(
-          height: 32,
-        ),
-      ],
-    );
+            ),
+          ],
+        );
   }
 }

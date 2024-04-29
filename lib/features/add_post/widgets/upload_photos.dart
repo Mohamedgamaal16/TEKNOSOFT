@@ -2,13 +2,22 @@ import 'package:climb_up/core/utils/app_styles.dart';
 import 'package:climb_up/features/add_post/widgets/add_photo.dart';
 import 'package:flutter/material.dart';
 
-class UploadPhotos extends StatelessWidget {
+class UploadPhotos extends StatefulWidget {
   const UploadPhotos({super.key});
+
+  @override
+  State<UploadPhotos> createState() => _UploadPhotosState();
+}
+
+class _UploadPhotosState extends State<UploadPhotos> {
+    static bool selected = false;
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        
         Text(
           'Upload Photos',
           style: AppStyles.poppinsStyleMedium12(context).copyWith(
@@ -26,7 +35,16 @@ class UploadPhotos extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: 4,
             itemBuilder: (context, index) {
-              return const AddPhoto();
+              return GestureDetector(
+                child: const AddPhoto(),
+                onTap: () {
+                  selected = true;
+                  AddPhoto(isSelectd: selected);
+                  setState(() {
+                    
+                  });
+                },
+              );
             },
             separatorBuilder: (context, index) {
               return const SizedBox(
