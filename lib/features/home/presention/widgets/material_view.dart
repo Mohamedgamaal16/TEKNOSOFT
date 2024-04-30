@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class MaterialView extends StatelessWidget {
   const MaterialView({super.key});
-static List<List<String>> pics = const [
+  static List<List<String>> pics = const [
     [
+      "assets/images/wood/wood1.jpg",
+          "assets/images/wood/wood.jpg",
       "assets/images/wood/maxresdefault.jpg",
-      "assets/images/wood/wood.jpg",
-      "assets/images/wood/wood1.jpg"
     ],
     [
       "assets/images/threads/cottonkh1.jpg",
@@ -58,16 +58,59 @@ static List<List<String>> pics = const [
       "assets/images/mirrors/sqmirror2.jpg"
     ]
   ];
+  static List<String> titles = const [
+    "Wood",
+    "Cotton Threads",
+    "Macrame Threads",
+    "Treko Threads",
+    "Beka Fabric",
+    "Caro Fabric",
+    "Cotton Fabric",
+    "Ketan Fabric",
+    "Stan Fabric",
+    "Rounded Mirrors",
+    "Square Mirrors"
+  ];
+  static List<String> rate = const [
+    "5",
+    "4.2",
+    "3",
+    "5",
+    "3",
+    "4.5",
+    "5",
+    "4.6",
+    "4",
+    "5",
+    "3.5"
+  ];
 
+  static List<String> price = const [
+    "250",
+    "100",
+    "200",
+    "150",
+    "60",
+    "40",
+    "50",
+    "52",
+    "46",
+    "82",
+    "120"
+  ];
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: pics.length,
       itemBuilder: (BuildContext context, int index) {
-        return  Padding(
-          padding: const EdgeInsets.symmetric(vertical:8.0),
-          child: CustomCard(pics: pics[index],)
-        );
+        return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: CustomCard(
+              pics: pics[index],
+              title: titles[index],
+              rate: rate[index],
+              price: price[index],
+            ));
       },
     );
   }
