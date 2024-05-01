@@ -1,22 +1,22 @@
 import 'package:climb_up/core/utils/app_styles.dart';
+import 'package:climb_up/features/home/data/models/material_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CardDetailes extends StatelessWidget {
   const CardDetailes({
-    super.key,
-    required this.title,
-    required this.rate,
+    super.key, required this.materialProductModel,
+    
   });
 
-  final String title;
-  final String rate;
+    final MaterialProductModel materialProductModel;
+
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(title,
+        Text(materialProductModel.title,
             style: AppStyles.poppinsStyleSemiBold16(context)
                 .copyWith(color: Colors.black)),
         const Spacer(),
@@ -27,7 +27,7 @@ class CardDetailes extends StatelessWidget {
         const SizedBox(
           width: 5,
         ),
-        Text(rate,
+        Text(materialProductModel.rate,
             style: AppStyles.poppinsStyleBold14(context)
                 .copyWith(color: Colors.black))
       ],
