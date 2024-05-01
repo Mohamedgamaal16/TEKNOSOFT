@@ -2,12 +2,12 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
 
-class ScrolablePics extends StatelessWidget {
-  const ScrolablePics({
+class ScrollablePics extends StatelessWidget {
+  const ScrollablePics({
     super.key,
-    required this.pics,
+    required this.pics, required this.smallerPaddingHeight,
   });
-
+final bool smallerPaddingHeight;
   final List<String> pics;
 
   @override
@@ -17,6 +17,7 @@ class ScrolablePics extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: AnotherCarousel(
+          indicatorBgPadding:smallerPaddingHeight ? 5: 20,
             boxFit: BoxFit.fill,
             dotBgColor: Colors.transparent,
             dotColor: Colors.black,

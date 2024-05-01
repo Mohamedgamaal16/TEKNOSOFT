@@ -14,7 +14,8 @@ class CustomCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ScrolablePics(pics: pics),
+        ScrollablePics(pics: pics,smallerPaddingHeight: 
+        true,),
         const SizedBox(
           height: 16,
         ),

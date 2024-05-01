@@ -83,6 +83,14 @@ static TextStyle poppinsStyleSemiBold16(BuildContext context) {
       fontWeight: FontWeight.w700,
     );
   }
+  static TextStyle poppinsStyleBold18(BuildContext context) {
+    return TextStyle(
+      color: Colors.black,
+      fontSize: getResponsiveFontSize(context, fontSize: 18),
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.w700,
+    );
+  }
 
   static interStyleSemiBold16(BuildContext context) {}
 }
@@ -100,7 +108,7 @@ double getResponsiveFontSize(BuildContext context, {required double fontSize}) {
 double getScaleFactor(BuildContext context) {
   double width = MediaQuery.of(context).size.width;
   if (width < 600) {
-    return width / 330;
+    return width / 350;
   } else if (width < 1200) {
     return width / 750;
   } else {
