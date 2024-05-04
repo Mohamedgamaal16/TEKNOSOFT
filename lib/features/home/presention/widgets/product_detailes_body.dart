@@ -4,7 +4,7 @@ import 'package:climb_up/core/widgets/custom_button.dart';
 import 'package:climb_up/features/home/presention/widgets/product_detailes_data.dart';
 import 'package:climb_up/features/home/presention/widgets/scrollable_pics.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class ProductDisplayBody extends StatelessWidget {
   const ProductDisplayBody({
@@ -14,9 +14,12 @@ class ProductDisplayBody extends StatelessWidget {
     required this.price,
     required this.detailes,
     required this.title,
+    required this.call,
   });
+  static String supportCallCenterNum = "01050566622";
   final List<String> pic;
   final String rate, price, detailes, title;
+  final bool call;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -43,8 +46,7 @@ class ProductDisplayBody extends StatelessWidget {
           child: TextInContainer(
             rate: rate,
             price: price,
-            detailes:
-                detailes,
+            detailes: detailes,
             title: title,
           ),
         ),
@@ -53,8 +55,9 @@ class ProductDisplayBody extends StatelessWidget {
           right: 0,
           left: 0,
           child: Padding(
-            padding: const EdgeInsets.only(right:18.0,left: 18,bottom: 10),
-            child: Container(color: Colors.white,
+            padding: const EdgeInsets.only(right: 18.0, left: 18, bottom: 10),
+            child: Container(
+              color: Colors.white,
               child: Row(
                 children: [
                   Column(
@@ -74,10 +77,15 @@ class ProductDisplayBody extends StatelessWidget {
                   ),
                   const Spacer(),
                   CustomButton(
-                    labelName: 'Add to cart',
+                    labelName: call ? 'Add to cart' : "call center",
                     color: AppColors.kPrimaryColor,
                     textColor: Colors.white,
-                    onPressed: () {},
+                    onPressed: () async {
+                      call
+                          ? ()
+                          : await FlutterPhoneDirectCaller.callNumber(
+                              supportCallCenterNum);
+                    },
                   ),
                 ],
               ),

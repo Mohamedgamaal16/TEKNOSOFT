@@ -1,10 +1,10 @@
 import 'package:climb_up/core/utils/app_styles.dart';
 import 'package:climb_up/core/utils/constants.dart';
 import 'package:climb_up/features/add_post/add_post_view.dart';
+import 'package:climb_up/features/auth/presention/sign_up_view.dart';
 import 'package:climb_up/features/home/presention/home_view.dart';
 import 'package:climb_up/features/profile/presentation/profile_view.dart';
-import 'package:climb_up/features/signin/presention/sign_in_view.dart';
-import 'package:climb_up/features/signup/presention/sign_up_view.dart';
+
 import 'package:climb_up/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -22,10 +22,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _currentIndex = 0;
   final List<Widget> _widgetsOptions = [
     const HomeView(),
-    const SignUpView(),
     const AddPostView(),
     const SignUpView(),
-    const ProfileView(),
+    const ProfileView(),    
+
   ];
   @override
   Widget build(BuildContext context) {
@@ -53,18 +53,18 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                     text: 'Home',
                     iconColor: Colors.black,
                   ),
-                  GButton(
-                    icon: FontAwesomeIcons.magnifyingGlass,
-                    text: 'Search',
-                    iconColor: Colors.black,
-                  ),
+                  // GButton(
+                  //   icon: FontAwesomeIcons.magnifyingGlass,
+                  //   text: 'Search',
+                  //   iconColor: Colors.black,
+                  // ),
                   GButton(
                     icon: MyFlutterApp.simple_line_icons_plus,
                     text: 'Add Post',
                     iconColor: Colors.black,
                   ),
                   GButton(
-                    icon: MyFlutterApp.ph_heart_fill,
+                    icon: FontAwesomeIcons.cartShopping,
                     text: 'Favorite',
                     iconColor: Colors.black,
                   ),
@@ -87,5 +87,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     setState(() {
       _currentIndex = value;
     });
+
+ 
   }
 }

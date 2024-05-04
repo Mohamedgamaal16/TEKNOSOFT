@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 
 class ProductDisplay extends StatelessWidget {
   const ProductDisplay({
-    super.key,required this.materialProductModel,
+    super.key,required this.materialProductModel, required this.call,
    
   });
     final MaterialProductModel materialProductModel;
-
+final bool call;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,7 +21,7 @@ class ProductDisplay extends StatelessWidget {
         rate: materialProductModel.rate,
         price: materialProductModel.price,
         detailes: materialProductModel.details,
-        title: materialProductModel.title,
+        title: materialProductModel.title, call: call,
       ),
     ));
   }

@@ -1,11 +1,11 @@
 import 'package:climb_up/core/utils/app_styles.dart';
 import 'package:climb_up/core/utils/constants.dart';
-import 'package:climb_up/features/signin/presention/widgets/sign_in_view_body.dart';
+import 'package:climb_up/features/auth/presention/widgets/sign_up_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class SignInView extends StatelessWidget {
-  const SignInView({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,7 @@ class SignInView extends StatelessWidget {
               color: AppColors.kPrimaryColor,
             )),
       ),
-      body:
-          const SafeArea(child: SingleChildScrollView(child: SignInViewBody())),
+      body: const SafeArea(child: SingleChildScrollView(child: SignUpViewBody())),
     );
   }
 }

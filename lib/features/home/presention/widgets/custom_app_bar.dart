@@ -1,13 +1,11 @@
-
 import 'package:climb_up/core/utils/app_styles.dart';
 import 'package:climb_up/core/utils/constants.dart';
+import 'package:climb_up/features/home/presention/widgets/custom_search_icon.dart';
 import 'package:climb_up/icons.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    super.key,
-  });
+  const CustomAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +17,15 @@ class CustomAppBar extends StatelessWidget {
         Icons.emoji_people,
         size: 1,
       ),
-      title: Text(
-        'Climb Up',
-        style: AppStyles.poppinsStyleBold24(context),
+      title: Row(
+        children: [
+          Text(
+            'Climb Up',
+            style: AppStyles.poppinsStyleBold24(context),
+          ),
+          const Spacer(),
+          const CustomSearchIcon()
+        ],
       ),
       bottom: const TabBar(
         indicatorColor: AppColors.kPrimaryColor,
@@ -47,3 +51,4 @@ class CustomAppBar extends StatelessWidget {
     );
   }
 }
+

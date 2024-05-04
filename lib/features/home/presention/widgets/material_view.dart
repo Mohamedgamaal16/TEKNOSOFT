@@ -149,7 +149,7 @@ class MaterialView extends StatelessWidget {
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (builder) {
-                  return ProductDisplay(materialProductModel: materialProducts[index],
+                  return ProductDisplay(materialProductModel: materialProducts[index], call: false,
                       );
                 }));
               },

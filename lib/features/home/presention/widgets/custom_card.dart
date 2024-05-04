@@ -38,7 +38,7 @@ class CustomCard extends StatelessWidget {
           height: 8,
         ),
         Text(
-          materialProductModel.price,
+          '${materialProductModel.price} EGP',
           style: AppStyles.poppinsStyleBold14(context)
               .copyWith(color: Colors.black),
         ),

@@ -9,8 +9,8 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-      child: Scaffold(
-        body: NestedScrollView(
+      child: 
+         NestedScrollView(
           floatHeaderSlivers: true,
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
             const CustomAppBar(),
@@ -25,7 +25,7 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-      ),
+    
     );
   }
 }
