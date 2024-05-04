@@ -2,6 +2,7 @@ import 'package:climb_up/core/utils/app_styles.dart';
 import 'package:climb_up/core/utils/constants.dart';
 import 'package:climb_up/features/add_post/add_post_view.dart';
 import 'package:climb_up/features/auth/presention/sign_up_view.dart';
+import 'package:climb_up/features/cart/presention/cart_view.dart';
 import 'package:climb_up/features/home/presention/home_view.dart';
 import 'package:climb_up/features/profile/presentation/profile_view.dart';
 
@@ -23,7 +24,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   final List<Widget> _widgetsOptions = [
     const HomeView(),
     const AddPostView(),
-    const SignUpView(),
+    const CartView(),
     const ProfileView(),    
 
   ];
@@ -65,7 +66,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   ),
                   GButton(
                     icon: FontAwesomeIcons.cartShopping,
-                    text: 'Favorite',
+                    text: 'Cart',
                     iconColor: Colors.black,
                   ),
                   GButton(
