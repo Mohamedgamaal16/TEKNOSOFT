@@ -1,3 +1,5 @@
+import 'package:climb_up/core/utils/app_styles.dart';
+import 'package:climb_up/core/utils/constants.dart';
 import 'package:climb_up/features/home/data/models/material_model.dart';
 import 'package:climb_up/features/home/presention/widgets/product_detailes_body.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,8 @@ final bool call;
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: Title(color: Colors.black, child: const Text('Back')),
+        foregroundColor:AppColors.kPrimaryColor ,
+        title: Title(color: AppColors.kPrimaryColor, child:  Text('Back',style: AppStyles.poppinsStyleMedium16(context),)),
       ),
       body: ProductDisplayBody(
         pic: materialProductModel.pics,

@@ -3,17 +3,10 @@ import 'package:climb_up/features/profile/data/models/profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ProfileBox extends StatefulWidget {
-  const ProfileBox({
-    super.key,
-    required this.profileModel,
-  });
+class ProfileBox extends StatelessWidget {
+  const ProfileBox({super.key, required this.profileModel});
   final ProfileModel profileModel;
-  @override
-  State<ProfileBox> createState() => _ProfileBoxState();
-}
 
-class _ProfileBoxState extends State<ProfileBox> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -32,7 +25,6 @@ class _ProfileBoxState extends State<ProfileBox> {
                     child: GestureDetector(
                       onTap: () async {
                         ImagePicker().pickImage(source: ImageSource.gallery);
-                        setState(() {});
                       },
                       child: Container(
                         height: 50,
@@ -60,13 +52,13 @@ class _ProfileBoxState extends State<ProfileBox> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget.profileModel.name,
+              profileModel.name,
               style: AppStyles.interStyleBold12(context).copyWith(
                 fontSize: 14,
               ),
             ),
             Text(
-              widget.profileModel.userName,
+              profileModel.userName,
               style: AppStyles.interStyleRegular12(context),
             )
           ],

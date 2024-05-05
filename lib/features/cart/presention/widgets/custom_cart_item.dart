@@ -35,7 +35,7 @@ class CustomCartItem extends StatelessWidget {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
-          Spacer(),
+          const Spacer(),
           IconButton(
             onPressed: () {},
             icon: const Icon(
