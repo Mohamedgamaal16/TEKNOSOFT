@@ -1,5 +1,6 @@
 import 'package:climb_up/features/home/presention/widgets/custom_app_bar.dart';
 import 'package:climb_up/features/home/presention/widgets/material_view.dart';
+import 'package:climb_up/features/home/presention/widgets/product_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -21,7 +22,10 @@ class HomeViewBody extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal:16.0),
                 child: MaterialView(),
               ),
-              Text('data'),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: ProductView(),
+              ),
             ],
           ),
         ),

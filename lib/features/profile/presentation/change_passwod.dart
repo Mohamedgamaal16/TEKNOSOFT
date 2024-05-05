@@ -6,11 +6,10 @@ class ChangePasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: ChangePasswordViewBody(),
-        ),
+    return  Scaffold(
+      appBar: AppBar(),
+      body: const SafeArea(
+        child: ChangePasswordViewBody(),
       ),
     );
   }
