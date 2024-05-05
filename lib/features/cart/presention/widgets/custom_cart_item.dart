@@ -18,10 +18,8 @@ class CustomCartItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
-      leading: Expanded(
-        child: CustomPic(
-          imageUrl: imageUrl,
-        ),
+      leading: CustomPic(
+        imageUrl: imageUrl,
       ),
       title: Text(
         title,
