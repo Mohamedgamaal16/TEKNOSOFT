@@ -52,7 +52,8 @@ dependencies:
   another_carousel_pro: ^1.0.2
   carousel_slider: ^4.2.1
   flutter_phone_direct_caller: ^2.1.1
-
+  get_it: ^7.6.7
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

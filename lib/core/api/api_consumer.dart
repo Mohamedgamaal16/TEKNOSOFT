@@ -1,4 +1,4 @@
-import 'package:dio/src/dio.dart';
+import 'package:dio/dio.dart';
 
 abstract class ApiConsumer {
   ApiConsumer(Dio dio);

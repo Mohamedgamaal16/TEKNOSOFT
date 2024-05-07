@@ -1,10 +1,7 @@
-enum Gender { male, female }
-
 class ProfileModel {
-  final String name, userName, email, phone, password, imageLink;
-  final Gender gender;
+  String name, userName, email, phone, password, imageLink, gender;
 
-  const ProfileModel({
+  ProfileModel({
     required this.name,
     required this.userName,
     required this.email,
