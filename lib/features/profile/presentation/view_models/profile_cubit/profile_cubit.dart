@@ -46,5 +46,4 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(SetGender());
   }
 
-  // Email Section
 }

@@ -4,20 +4,16 @@ import 'package:climb_up/features/home/presention/view_models/home_cubit/home_cu
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         HomeCubit homeCubit = BlocProvider.of<HomeCubit>(context);
         return Scaffold(
+        
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(

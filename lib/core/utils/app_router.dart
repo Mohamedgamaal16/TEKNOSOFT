@@ -15,15 +15,17 @@ abstract class AppRouter {
   static const kChangePassword = '/changePassword';
 
   static final GoRouter router = GoRouter(routes: [
+    // GoRoute(
+    //   path: '/',
+    //   builder: (context, state) => BlocProvider(
+    //     create: (context) => SplashCubit(),
+    //     child: const SplashView(),
+    //   ),
+    // ),
     GoRoute(
-      path: '/',
-      builder: (context, state) => BlocProvider(
-        create: (context) => SplashCubit(),
-        child: const SplashView(),
-      ),
-    ),
-    GoRoute(
-      path: kLogInView,
+      // path: kLogInView,
+            path: '/',
+
       builder: (context, state) => const SignInView(),
     ),
     GoRoute(

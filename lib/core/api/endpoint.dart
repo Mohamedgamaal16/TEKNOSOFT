@@ -1,10 +1,10 @@
 class EndPoint {
-  static String baseUrl = "http://localhost:3000/api/v1/";
-  static String signIn = "users/login";
-  static String signUp = "users/signup";
+  static String baseUrl = "https://accept.paymob.com/api/";
+  static String orders = "ecommerce/orders";
+    static String auth = "auth/tokens";
+        static String acceptance = "acceptance/payment_keys";
+
   // static String search = "top-headlines";
-
-
 
 //   static String search(search) {
 //     return "everything?q=$search";
@@ -17,12 +17,17 @@ class EndPoint {
 //   }
 }
 
-class RegestrionApiKey {
-  static String status = "status";
-  static String errorMessage = "ErrorMessage";
-  
-  static String email = "email";
-  static String password = "password";
-  static String confirmPassword = "passwordConfirm";
-  static String name = "name";
+class PaymentApiKey {
+  static String apiKeyData =
+      "ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2T1RjMU9EWTNMQ0p1WVcxbElqb2lhVzVwZEdsaGJDSjkueXJpTmVOUzJMYm5JWF9SSlEwd3U5bWJBVjhfbWpnSHp3OEtUR1o1S191MkJiNXB3ZnpyT05wallSVjBkTDdUWVkxQXB3WmZ4QW1jb1hCbmQyV3h6WGc=";
+  static String apiKey = 'api_key';
+  static String token = 'token';
+  static String authToken = 'auth_token';
+  static String deliveryNeeded = 'delivery_needed';
+  static String amountCents = 'amount_cents';
+  static String items = 'items';
+  static String currency='currency';
+  static String id='id';
+  static String integrationId='integration_id';
+
 }

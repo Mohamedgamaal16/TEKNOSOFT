@@ -6,9 +6,12 @@ abstract class GetInstance {
   static final getIt = GetIt.instance;
 
   static Future registerInstances() async {
+  
     getIt.registerSingletonAsync<SharedPreferences>(
       () => SharedPreferences.getInstance(),
     );
+
+
     getIt.registerSingleton(SplashRepoImpl());
   }
 
