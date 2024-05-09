@@ -57,8 +57,10 @@ class CartFooter extends StatelessWidget {
                         return CardWebView(
                             totalPrice: totalPrice, paymentToken: state.url);
                       }));
-                    }
-                     else if (state is PaymentFailure) {
+                      print(
+                          "=================================================================");
+                      print(state.url);
+                    } else if (state is PaymentFailure) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text(state.errorMessage),
                       ));
