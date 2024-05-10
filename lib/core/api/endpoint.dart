@@ -1,7 +1,11 @@
 class EndPoint {
-  static String baseUrl = "https://accept.paymob.com/api/";
+  static String baseUrl = "https://climb-upp-2c04b3f20fb9.herokuapp.com/api/v1/";
+    static String signUp = "users/signup";
+  static String login = "users/login";
+
+  
   static String orders = "ecommerce/orders";
-  static String auth = "auth/tokens";
+  static String paymentAuth = "auth/tokens";
   static String acceptance = "acceptance/payment_keys";
   static String paymentBaseUrl = "https://accept.paymob.com/api/";
 
@@ -25,4 +29,14 @@ class PaymentApiKey {
   static String id = 'id';
 
   static String integrationIdData = '4573521';
+}
+class ApiKey {
+  static String token = 'token';
+    static String id = 'id';
+
+  static String name = 'name';
+  static String email = 'email';
+  static String password = 'password';
+  static String passwordConfirm = 'passwordConfirm';
+
 }

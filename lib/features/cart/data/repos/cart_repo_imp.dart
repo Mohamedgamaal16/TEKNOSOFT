@@ -39,7 +39,7 @@ class CartRepoImp implements CartRepo {
 
   Future<String> _getAuthenticationToken() async {
     final Response response =
-        await Dio().post("${EndPoint.paymentBaseUrl}${EndPoint.auth}", data: {
+        await Dio().post("${EndPoint.paymentBaseUrl}${EndPoint.paymentAuth}", data: {
       PaymentApiKey.apiKey: PaymentApiKey.apiKeyData,
     });
     return response.data[PaymentApiKey.token];
