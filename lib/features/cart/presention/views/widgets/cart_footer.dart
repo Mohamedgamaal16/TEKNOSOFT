@@ -47,6 +47,7 @@ class CartFooter extends StatelessWidget {
                   color: AppColors.kPrimaryColor,
                   textColor: Colors.white,
                   onPressed: () {
+                    context.read<PaymentCubit>().payWithPayMob(totalPrice: 500);
                     if (state is PaymentSuccess) {
                       context
                           .read<PaymentCubit>()

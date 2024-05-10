@@ -19,8 +19,11 @@ class ProfileView extends StatelessWidget {
                   color: AppColors.kPrimaryColor,
                 ),
               );
-            } else {}
-            return const SingleChildScrollView(child: ProfileViewBody());
+            } else {
+              return const SingleChildScrollView(
+                child: ProfileViewBody(),
+              );
+            }
           },
         ),
       ),

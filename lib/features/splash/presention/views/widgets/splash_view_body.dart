@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:climb_up/core/utils/app_router.dart';
 import 'package:climb_up/core/utils/constants.dart';
 import 'package:climb_up/core/utils/service_locator.dart';
@@ -7,6 +5,7 @@ import 'package:climb_up/features/splash/presention/views/widgets/app_logo.dart'
 import 'package:climb_up/features/splash/presention/views/widgets/auth_options.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
@@ -100,7 +99,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   Future _loadData() async {
-    final prefs = await GetInstance.prefs;
+    final prefs = await getIt.getAsync<SharedPreferences>();
     _isLoggedIn = prefs.getBool(SharedPrefKeys.kSplashIsLoggedIn) ?? false;
     prefs.setBool(SharedPrefKeys.kSplashIsLoggedIn, _isLoggedIn);
   }

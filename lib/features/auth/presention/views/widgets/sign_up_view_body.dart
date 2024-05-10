@@ -82,7 +82,8 @@ class SignUpViewBody extends StatelessWidget {
                     labelName: 'Sign Up',
                     textColor: Colors.white,
                     onPressed: () async {
-                      SharedPreferences prefs = await GetInstance.prefs;
+                      SharedPreferences prefs =
+                          await getIt.getAsync<SharedPreferences>();
                       prefs.setBool(SharedPrefKeys.kSplashIsLoggedIn, true);
                       if (context.mounted) {
                         GoRouter.of(context).push(AppRouter.kHomeView);

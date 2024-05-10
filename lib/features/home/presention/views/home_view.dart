@@ -13,7 +13,6 @@ class HomeView extends StatelessWidget {
       builder: (context, state) {
         HomeCubit homeCubit = BlocProvider.of<HomeCubit>(context);
         return Scaffold(
-        
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(

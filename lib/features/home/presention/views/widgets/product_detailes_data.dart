@@ -1,6 +1,6 @@
 import 'package:climb_up/core/utils/app_styles.dart';
-import 'package:climb_up/core/utils/constants.dart';
-import 'package:climb_up/core/widgets/custom_button.dart';
+// import 'package:climb_up/core/utils/constants.dart';
+// import 'package:climb_up/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -84,8 +84,6 @@ class TextInContainer extends StatelessWidget {
                       .copyWith(color: Colors.black87),
                 ),
               ),
-              
-              
             ],
           ),
         ),

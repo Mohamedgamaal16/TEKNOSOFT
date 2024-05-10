@@ -16,7 +16,7 @@ class _GenderSelectorState extends State<GenderSelector> {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
-        ProfileCubit profileCubit = ProfileCubit.get(context);
+        ProfileCubit profileCubit = BlocProvider.of(context);
         return Padding(
           padding: const EdgeInsets.only(
             top: 10,

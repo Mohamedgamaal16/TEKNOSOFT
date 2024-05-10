@@ -1,4 +1,4 @@
-import 'package:another_carousel_pro/another_carousel_pro.dart';
+// import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:climb_up/core/utils/app_styles.dart';
 import 'package:climb_up/features/home/data/models/material_model.dart';
 import 'package:climb_up/features/home/presention/views/widgets/custom_detailes.dart';

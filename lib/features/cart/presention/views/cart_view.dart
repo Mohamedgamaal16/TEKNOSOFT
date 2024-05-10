@@ -11,12 +11,10 @@ class CartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         body: SafeArea(
-            child: BlocProvider(
-      create: (context) =>
-          PaymentCubit(CartRepoImp(api: DioConsumer(dio: Dio())))..payWithPayMob(totalPrice: 250),
-      child: const CartViewBody(),
-    )));
+            
+      child: CartViewBody(),
+    ));
   }
 }

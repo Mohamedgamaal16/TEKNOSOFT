@@ -1,7 +1,7 @@
 import 'package:climb_up/features/splash/data/repos/splash_repo.dart';
 import 'package:flutter/material.dart';
 
-class SplashRepoImpl extends SplashRepo {
+class SplashRepoImpl implements SplashRepo {
   @override
   void initSlidingAnimationLRTL(
     AnimationController animationControllerRTL,

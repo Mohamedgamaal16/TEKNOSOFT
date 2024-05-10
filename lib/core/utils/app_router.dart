@@ -9,23 +9,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
+  static const kSplashView = '/';
   static const kLogInView = '/logIn';
   static const kSignUp = '/signUp';
   static const kHomeView = '/homeView';
   static const kChangePassword = '/changePassword';
 
   static final GoRouter router = GoRouter(routes: [
-    // GoRoute(
-    //   path: '/',
-    //   builder: (context, state) => BlocProvider(
-    //     create: (context) => SplashCubit(),
-    //     child: const SplashView(),
-    //   ),
-    // ),
     GoRoute(
-      // path: kLogInView,
-            path: '/',
-
+      path: kSplashView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => SplashCubit(),
+        child: const SplashView(),
+      ),
+    ),
+    GoRoute(
+      path: kLogInView,
       builder: (context, state) => const SignInView(),
     ),
     GoRoute(

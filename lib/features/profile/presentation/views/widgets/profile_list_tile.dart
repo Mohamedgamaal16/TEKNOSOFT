@@ -17,6 +17,7 @@ class ProfileListTile extends StatelessWidget {
   final String subTitle;
   final void Function()? onTap;
   final Color color;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
