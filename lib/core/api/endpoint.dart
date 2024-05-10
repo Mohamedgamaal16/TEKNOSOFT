@@ -1,10 +1,9 @@
 class EndPoint {
   static String baseUrl = "https://accept.paymob.com/api/";
   static String orders = "ecommerce/orders";
-    static String auth = "auth/tokens";
-        static String acceptance = "acceptance/payment_keys";
-
-  // static String search = "top-headlines";
+  static String auth = "auth/tokens";
+  static String acceptance = "acceptance/payment_keys";
+  static String paymentBaseUrl = "https://accept.paymob.com/api/";
 
 //   static String search(search) {
 //     return "everything?q=$search";
@@ -23,11 +22,7 @@ class PaymentApiKey {
   static String apiKey = 'api_key';
   static String token = 'token';
   static String authToken = 'auth_token';
-  static String deliveryNeeded = 'delivery_needed';
-  static String amountCents = 'amount_cents';
-  static String items = 'items';
-  static String currency='currency';
-  static String id='id';
-  static String integrationId='integration_id';
+  static String id = 'id';
 
+  static String integrationIdData = '4573521';
 }

@@ -5,7 +5,6 @@ import 'package:climb_up/features/cart/presention/view_models/payment_cubit/paym
 import 'package:climb_up/features/cart/presention/views/widgets/card_web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class CartFooter extends StatelessWidget {
   const CartFooter({
@@ -15,10 +14,8 @@ class CartFooter extends StatelessWidget {
   final int totalPrice;
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<PaymentCubit, PaymentState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+    return BlocBuilder<PaymentCubit, PaymentState>(
+      
       builder: (context, state) {
         return Container(
           color: Colors.white,
@@ -49,17 +46,17 @@ class CartFooter extends StatelessWidget {
                   labelName: 'Check Out',
                   color: AppColors.kPrimaryColor,
                   textColor: Colors.white,
-                  onPressed: () async {
+                  onPressed: () {
                     if (state is PaymentSuccess) {
-                      // context.read<PaymentCubit>().payWithPayMob(totalPrice: totalPrice);
+                      context
+                          .read<PaymentCubit>()
+                          .payWithPayMob(totalPrice: totalPrice);
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
                         return CardWebView(
-                            totalPrice: totalPrice, paymentToken: state.url);
+                            totalPrice: totalPrice,
+                            paymentToken: state.paymentKey);
                       }));
-                      print(
-                          "=================================================================");
-                      print(state.url);
                     } else if (state is PaymentFailure) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text(state.errorMessage),

@@ -6,9 +6,9 @@ sealed class PaymentState {}
 final class PaymentInitial extends PaymentState {}
 final class PaymentLoading extends PaymentState {}
 final class PaymentSuccess extends PaymentState {
-  final String url;
+  final String paymentKey;
 
-  PaymentSuccess({required this.url});
+  PaymentSuccess({required this.paymentKey});
 }
 final class PaymentFailure extends PaymentState {
 

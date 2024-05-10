@@ -13,10 +13,10 @@ payWithPayMob({required int totalPrice}) async {
   emit(PaymentLoading());
   
  
-    final urlEither = await cartRepo.payWithPayMob(totalPrice: totalPrice);
+    final urlEither = await cartRepo.payWithPayMob(amount: totalPrice, currency: 'EGP');
     urlEither.fold(
       (err) => emit(PaymentFailure(errorMessage: err)),
-      (success) => emit(PaymentSuccess(url: success)),
+      (success) => emit(PaymentSuccess(paymentKey: success)),
     );
  
 }
