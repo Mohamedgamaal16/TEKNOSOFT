@@ -49,7 +49,7 @@ class AuthRepoImp implements AuthRepo {
   Future<Either<AuthResponseModel, String>> signIn(
       {required String email, required String password}) async {
     try {
-      final response = await api.post(EndPoint.signUp, data: {
+      final response = await api.post(EndPoint.login, data: {
         ApiKey.email: email,
         ApiKey.password: password,
       });
