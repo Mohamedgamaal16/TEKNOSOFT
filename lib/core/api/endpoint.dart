@@ -1,5 +1,4 @@
-import 'package:climb_up/core/cache/cahche_helper.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 
 class EndPoint  {
 
@@ -9,13 +8,20 @@ class EndPoint  {
   static String login = "users/login";
   static String addProduct = "users/login";
 
+  static String getAllProducts = "products/";
+
+static String addToCart(productId) {
+    return "products/${productId}/addtocart";
+  }
+static String getUserData(id) {
+    return "users/$id";
+  }
+
   static String orders = "ecommerce/orders";
   static String paymentAuth = "auth/tokens";
   static String acceptance = "acceptance/payment_keys";
   static String paymentBaseUrl = "https://accept.paymob.com/api/";
- static String getUserData(id) {
-    return "users/$id";
-  }
+ 
 //   static String search(search) {
 //     return "everything?q=$search";
 //   }

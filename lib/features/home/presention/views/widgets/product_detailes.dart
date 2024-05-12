@@ -8,10 +8,11 @@ class ProductDisplay extends StatelessWidget {
   const ProductDisplay({
     super.key,
     required this.materialProductModel,
-    required this.call,
+    required this.call,  this.netWorkImage=false,  this.productId='',
   });
   final MaterialProductModel materialProductModel;
-  final bool call;
+  final bool call,netWorkImage;
+  final String productId;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,12 +27,13 @@ class ProductDisplay extends StatelessWidget {
             )),
       ),
       body: ProductDisplayBody(
+        netWorkImage: netWorkImage,
         pic: materialProductModel.pics,
         rate: materialProductModel.rate,
         price: materialProductModel.price,
         detailes: materialProductModel.details,
         title: materialProductModel.title,
-        call: call,
+        call: call, productId: productId,
       ),
     ));
   }

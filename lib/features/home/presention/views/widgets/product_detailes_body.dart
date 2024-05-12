@@ -1,10 +1,15 @@
 // import 'package:climb_up/core/utils/app_styles.dart';
 // import 'package:climb_up/core/utils/constants.dart';
 // import 'package:climb_up/core/widgets/custom_button.dart';
+import 'package:climb_up/core/api/dio_consumer.dart';
+import 'package:climb_up/features/home/data/repos/home_repo_impl.dart';
+import 'package:climb_up/features/home/presention/view_models/addproduct_to_cart_cubit/addproduct_to_cart_cubit.dart';
 import 'package:climb_up/features/home/presention/views/widgets/product_detailes_data.dart';
 import 'package:climb_up/features/home/presention/views/widgets/product_footer.dart';
 import 'package:climb_up/features/home/presention/views/widgets/scrollable_pics.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class ProductDisplayBody extends StatelessWidget {
@@ -16,11 +21,14 @@ class ProductDisplayBody extends StatelessWidget {
     required this.detailes,
     required this.title,
     required this.call,
+    this.netWorkImage = false,
+    required this.productId,
   });
   static String supportCallCenterNum = "01050566622";
   final List<String> pic;
-  final String rate, price, detailes, title;
-  final bool call;
+  final String rate, price, detailes, title, productId;
+  final bool call, netWorkImage;
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -36,6 +44,7 @@ class ProductDisplayBody extends StatelessWidget {
             child: ScrollablePics(
               smallerPaddingHeight: false,
               pics: pic,
+              netWorkImage: netWorkImage,
             ),
           ),
         ),
@@ -51,10 +60,15 @@ class ProductDisplayBody extends StatelessWidget {
             title: title,
           ),
         ),
-        ProductFooter(
+        BlocProvider(
+          create: (context) => AddproductToCartCubit(HomeRepoImpl(api: DioConsumer(dio: Dio()))),
+          child: ProductFooter(
             price: price,
             call: call,
-            supportCallCenterNum: supportCallCenterNum)
+            supportCallCenterNum: supportCallCenterNum,
+            productId: productId,
+          ),
+        )
       ],
     );
   }

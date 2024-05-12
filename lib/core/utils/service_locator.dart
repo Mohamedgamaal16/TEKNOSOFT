@@ -21,7 +21,7 @@ Future registerInstances() async {
 
   getIt.registerSingleton(CartRepoImp(api: getIt.get<DioConsumer>()));
   getIt.registerSingleton(SplashRepoImpl());
-  getIt.registerSingleton(HomeRepoImpl());
+  getIt.registerSingleton(HomeRepoImpl(api: DioConsumer(dio: Dio())));
   getIt.registerSingleton(ProfileRepoImpl(api: DioConsumer(dio: Dio())));
 }
   // static final prefs = getIt.getAsync<SharedPreferences>();

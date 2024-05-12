@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 class CustomCard extends StatelessWidget {
   const CustomCard({
     super.key,
-    required this.materialProductModel,
+    required this.materialProductModel,  this.networkImage =false,
   });
-
+final bool networkImage ;
   final MaterialProductModel materialProductModel;
   @override
   Widget build(BuildContext context) {
@@ -18,6 +18,7 @@ class CustomCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ScrollablePics(
+          netWorkImage: networkImage,
           pics: materialProductModel.pics,
           smallerPaddingHeight: true,
         ),

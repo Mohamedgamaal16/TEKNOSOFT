@@ -83,6 +83,10 @@ class TextInContainer extends StatelessWidget {
                   style: AppStyles.poppinsStyleRegular14(context)
                       .copyWith(color: Colors.black87),
                 ),
+              ),const SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 50,
+                ),
               ),
             ],
           ),
