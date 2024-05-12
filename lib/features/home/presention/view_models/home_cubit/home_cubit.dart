@@ -3,6 +3,7 @@ import 'package:climb_up/features/add_post/data/repo/add_product_repo_imp.dart';
 import 'package:climb_up/features/add_post/presentation/view_models/cubit/add_product_cubit.dart';
 import 'package:climb_up/features/add_post/presentation/views/add_post_view.dart';
 import 'package:climb_up/features/cart/data/repos/cart_repo_imp.dart';
+import 'package:climb_up/features/cart/presention/view_models/fetch_cart_products_cubit/fetch_cart_products_cubit.dart';
 import 'package:climb_up/features/cart/presention/view_models/payment_cubit/payment_cubit.dart';
 import 'package:climb_up/features/cart/presention/views/cart_view.dart';
 import 'package:climb_up/features/home/data/repos/home_repo_impl.dart';
@@ -42,9 +43,16 @@ class HomeCubit extends Cubit<HomeState> {
           AddProductCubit(AddProductRepoImp(api: DioConsumer(dio: Dio()))),
       child: const AddPostView(),
     ),
-    BlocProvider(
-      create: (context) =>
-          PaymentCubit(CartRepoImp(api: DioConsumer(dio: Dio()))),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              PaymentCubit(CartRepoImp(api: DioConsumer(dio: Dio()))),
+        ),
+        BlocProvider(
+          create: (context) => FetchCartProductsCubit(CartRepoImp(api: DioConsumer(dio: Dio())))..fetchCartProducts(),
+        ),
+      ],
       child: const CartView(),
     ),
     MultiBlocProvider(

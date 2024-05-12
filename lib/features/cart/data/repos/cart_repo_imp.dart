@@ -1,7 +1,9 @@
 import 'package:climb_up/core/api/api_consumer.dart';
 import 'package:climb_up/core/api/endpoint.dart';
+import 'package:climb_up/core/errors/exceptions.dart';
 import 'package:climb_up/core/utils/constants.dart';
 import 'package:climb_up/core/utils/service_locator.dart';
+import 'package:climb_up/features/cart/data/models/cart_products_model.dart';
 import 'package:climb_up/features/cart/data/repos/cart_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -41,8 +43,8 @@ class CartRepoImp implements CartRepo {
   }
 
   Future<String> _getAuthenticationToken() async {
-    final Response response =
-        await Dio().post("${EndPoint.paymentBaseUrl}${EndPoint.paymentAuth}", data: {
+    final Response response = await Dio()
+        .post("${EndPoint.paymentBaseUrl}${EndPoint.paymentAuth}", data: {
       PaymentApiKey.apiKey: PaymentApiKey.apiKeyData,
     });
     return response.data[PaymentApiKey.token];
@@ -53,8 +55,8 @@ class CartRepoImp implements CartRepo {
     required String amount,
     required String currency,
   }) async {
-    final Response response = await Dio()
-        .post("${EndPoint.paymentBaseUrl}${EndPoint.orders}", data: {
+    final Response response =
+        await Dio().post("${EndPoint.paymentBaseUrl}${EndPoint.orders}", data: {
       PaymentApiKey.authToken: authenticationToken,
       "amount_cents": amount, // Amount in cents (STRING)
       "currency": currency, // Not required
@@ -70,7 +72,7 @@ class CartRepoImp implements CartRepo {
     required String amount,
     required String currency,
   }) async {
-        final SharedPreferences prefs = await getIt.getAsync<SharedPreferences>();
+    final SharedPreferences prefs = await getIt.getAsync<SharedPreferences>();
 
     final Response response = await Dio()
         .post("${EndPoint.paymentBaseUrl}${EndPoint.acceptance}", data: {
@@ -100,5 +102,18 @@ class CartRepoImp implements CartRepo {
       },
     });
     return response.data[PaymentApiKey.token];
+  }
+
+  @override
+  Future<Either<String, CartProductsModel>> fetchCartProducts() async {
+    // TODO: implement fetchCartProducts
+    try {
+      final response = await api.get(EndPoint.getCartData);
+
+      CartProductsModel data = CartProductsModel.fromJson(response);
+      return right(data);
+    } on ServerException catch (e) {
+      return left(e.errModel.message);
+    }
   }
 }

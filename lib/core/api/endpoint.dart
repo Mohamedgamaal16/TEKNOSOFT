@@ -1,5 +1,7 @@
 
 
+// ignore_for_file: unnecessary_brace_in_string_interps
+
 class EndPoint  {
 
   static String baseUrl =
@@ -9,6 +11,7 @@ class EndPoint  {
   static String addProduct = "users/login";
 
   static String getAllProducts = "products/";
+  static String getCartData = "cart/";
 
 static String addToCart(productId) {
     return "products/${productId}/addtocart";
