@@ -13,4 +13,6 @@ class GetUserDataCubit extends Cubit<GetUserDataState> {
     user.fold((err) => emit(GetUserDataFaliure(errMessage: err)),
         (success) => emit(GetUserDataSuccess(userModel: success)));
   }
+ 
+  
 }

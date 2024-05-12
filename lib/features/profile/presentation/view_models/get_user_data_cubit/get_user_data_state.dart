@@ -16,3 +16,4 @@ final class GetUserDataFaliure extends GetUserDataState {
   GetUserDataFaliure({required this.errMessage});
 }
 final class GetUserDataLoading extends GetUserDataState {}
+

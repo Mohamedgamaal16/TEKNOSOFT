@@ -1,8 +1,11 @@
 import 'package:climb_up/core/api/api_consumer.dart';
 import 'package:climb_up/core/api/endpoint.dart';
+import 'package:climb_up/core/utils/constants.dart';
+import 'package:climb_up/core/utils/service_locator.dart';
 import 'package:climb_up/features/cart/data/repos/cart_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CartRepoImp implements CartRepo {
   final ApiConsumer api;
@@ -67,6 +70,8 @@ class CartRepoImp implements CartRepo {
     required String amount,
     required String currency,
   }) async {
+        final SharedPreferences prefs = await getIt.getAsync<SharedPreferences>();
+
     final Response response = await Dio()
         .post("${EndPoint.paymentBaseUrl}${EndPoint.acceptance}", data: {
       // All of these fields are required
@@ -78,9 +83,9 @@ class CartRepoImp implements CartRepo {
       "currency": currency,
       "billing_data": {
         // These fields must have values
-        "first_name": "Clifford",
-        "last_name": "Nicolas",
-        "email": "claudette09@exa.com",
+        "first_name": prefs.getString(SharedPrefKeys.kProfileName),
+        "last_name": prefs.getString(SharedPrefKeys.kProfileName),
+        "email": prefs.getString(SharedPrefKeys.kProfileEmail),
         "phone_number": "+86(8)9135210487",
         // Other fields can be set to "NA"
         "apartment": "NA",

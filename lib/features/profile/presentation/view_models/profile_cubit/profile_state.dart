@@ -9,3 +9,4 @@ final class ProfileIsLoading extends ProfileState {}
 final class ProfileLoadedSuccessfully extends ProfileState {}
 
 final class SetGender extends ProfileState {}
+final class UploadProfilePic extends ProfileState {}

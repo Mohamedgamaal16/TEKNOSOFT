@@ -102,8 +102,8 @@ class _CardWebViewState extends State<CardWebView> {
     return Scaffold(
       appBar: AppBar(),
       body: InAppWebView(
-        initialOptions: InAppWebViewGroupOptions(
-          crossPlatform: InAppWebViewOptions(javaScriptEnabled: true),
+        initialSettings: InAppWebViewSettings(
+          javaScriptEnabled: true,
         ),
         onWebViewCreated: (controller) {
           _webViewController = controller;

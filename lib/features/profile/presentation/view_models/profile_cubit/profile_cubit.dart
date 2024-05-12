@@ -4,11 +4,13 @@ import 'package:climb_up/features/profile/data/models/profile_model.dart';
 import 'package:climb_up/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit() : super(ProfileInitial());
+  XFile? pic;
 
   late ProfileModel profileModel;
   final List<String> genders = [
@@ -47,5 +49,9 @@ class ProfileCubit extends Cubit<ProfileState> {
 
   void logOut(BuildContext context) {
     getIt.get<ProfileRepoImpl>().logOut(context);
+  }
+  uploadProfilePic(XFile image) {
+    pic = image;
+    emit(UploadProfilePic());
   }
 }

@@ -45,12 +45,21 @@ class ProfileRepoImpl implements ProfileRepo {
   Future<Either<String, UserModel>> fetchUserData() async {
     final SharedPreferences prefs = await getIt.getAsync<SharedPreferences>();
 
-     try {
-    final response = await api.get(EndPoint.getUserData(prefs.getString(ApiKey.id)));
-    final user = UserModel.fromJson(response);
-    return Right(user); 
-  } catch (e) {
-    return Left('Failed to fetch user data: $e'); 
-  }
+    try {
+      final response =
+          await api.get(EndPoint.getUserData(prefs.getString(ApiKey.id)));
+      final user = UserModel.fromJson(response);
+
+      prefs.setString(SharedPrefKeys.kProfileName, user.data.user.name);
+      prefs.setString(SharedPrefKeys.kProfileUserName, user.data.user.name);
+      prefs.setString(SharedPrefKeys.kProfileEmail, user.data.user.email);
+      prefs.setString(SharedPrefKeys.kProfilePhone, user.data.user.id);
+
+    
+
+      return Right(user);
+    } catch (e) {
+      return Left('Failed to fetch user data: $e');
+    }
   }
 }
