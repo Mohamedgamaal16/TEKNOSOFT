@@ -1,4 +1,3 @@
-import 'package:climb_up/core/extensions/sepretator.dart';
 import 'package:climb_up/core/utils/app_styles.dart';
 import 'package:climb_up/features/add_post/presentation/view_models/cubit/add_product_cubit.dart';
 import 'package:climb_up/features/add_post/presentation/views/widgets/add_photo.dart';

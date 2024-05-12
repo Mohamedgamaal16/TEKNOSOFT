@@ -36,6 +36,10 @@ class ProfileRepoImpl implements ProfileRepo {
   Future logOut(BuildContext context) async {
     final SharedPreferences prefs = await getIt.getAsync<SharedPreferences>();
     prefs.setBool(SharedPrefKeys.kSplashIsLoggedIn, false);
+     prefs.setString(SharedPrefKeys.kProfileName, 'null');
+      prefs.setString(SharedPrefKeys.kProfileUserName, 'null');
+      prefs.setString(SharedPrefKeys.kProfileEmail, 'null');
+      prefs.setString(SharedPrefKeys.kProfilePhone, 'null');
     if (context.mounted) {
       GoRouter.of(context).pushReplacement(AppRouter.kSplashView);
     }
@@ -54,8 +58,8 @@ class ProfileRepoImpl implements ProfileRepo {
       prefs.setString(SharedPrefKeys.kProfileUserName, user.data.user.name);
       prefs.setString(SharedPrefKeys.kProfileEmail, user.data.user.email);
       prefs.setString(SharedPrefKeys.kProfilePhone, user.data.user.id);
-
-    
+print("=========================================");
+    print(prefs.getString(SharedPrefKeys.kProfileName));
 
       return Right(user);
     } catch (e) {

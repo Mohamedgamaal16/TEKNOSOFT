@@ -1,6 +1,5 @@
 import 'package:climb_up/core/utils/app_styles.dart';
-import 'package:climb_up/core/utils/constants.dart';
-import 'package:climb_up/core/widgets/custom_button.dart';
+
 import 'package:climb_up/features/cart/presention/views/widgets/cart_footer.dart';
 import 'package:climb_up/features/cart/presention/views/widgets/custom_cart_item.dart';
 import 'package:flutter/material.dart';

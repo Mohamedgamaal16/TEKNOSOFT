@@ -17,3 +17,5 @@ final class GetUserDataFaliure extends GetUserDataState {
 }
 final class GetUserDataLoading extends GetUserDataState {}
 
+final class SetGender extends GetUserDataState {}
+final class UploadProfilePic extends GetUserDataState {}
