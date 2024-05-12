@@ -59,6 +59,7 @@ class AuthRepoImp implements AuthRepo {
       final SharedPreferences prefs = await getIt.getAsync<SharedPreferences>();
       prefs.setString(ApiKey.token, data.token);
       prefs.setString(ApiKey.id, decodeToken[ApiKey.id]);
+      
       return left(data);
     } on ServerException catch (e) {
       return right(e.errModel.message);

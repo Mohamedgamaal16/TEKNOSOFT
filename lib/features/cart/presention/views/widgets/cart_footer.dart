@@ -40,18 +40,18 @@ class CartFooter extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              SizedBox(
+              state is PaymentLoading
+                        ? const CircularProgressIndicator()
+                        :  SizedBox(
                 height: MediaQuery.of(context).size.height * .07,
                 child: CustomButton(
                   labelName: 'Check Out',
                   color: AppColors.kPrimaryColor,
                   textColor: Colors.white,
                   onPressed: () {
-                    context.read<PaymentCubit>().payWithPayMob(totalPrice: 500);
+                    context.read<PaymentCubit>().payWithPayMob(totalPrice: 2500);
                     if (state is PaymentSuccess) {
-                      context
-                          .read<PaymentCubit>()
-                          .payWithPayMob(totalPrice: totalPrice);
+                      
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
                         return CardWebView(

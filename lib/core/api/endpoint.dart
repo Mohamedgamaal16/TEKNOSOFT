@@ -1,23 +1,28 @@
-class EndPoint {
-  static String baseUrl = "https://climb-upp-2c04b3f20fb9.herokuapp.com/api/v1/";
-    static String signUp = "users/signup";
-  static String login = "users/login";
+import 'package:climb_up/core/cache/cahche_helper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-  
+class EndPoint  {
+
+  static String baseUrl =
+      "https://climb-upp-2c04b3f20fb9.herokuapp.com/api/v1/";
+  static String signUp = "users/signup";
+  static String login = "users/login";
+  static String addProduct = "users/login";
+
   static String orders = "ecommerce/orders";
   static String paymentAuth = "auth/tokens";
   static String acceptance = "acceptance/payment_keys";
   static String paymentBaseUrl = "https://accept.paymob.com/api/";
-
+ static String getUserData(id) {
+    return "users/$id";
+  }
 //   static String search(search) {
 //     return "everything?q=$search";
 //   }
 //  static String categories(category) {
 //     return "$topHeadlines?category=$category";
 //   }
-//   static String getUserDataEndPoint(id) {
-//     return "user/get-user/$id";
-//   }
+ 
 }
 
 class PaymentApiKey {
@@ -30,13 +35,17 @@ class PaymentApiKey {
 
   static String integrationIdData = '4573521';
 }
+
 class ApiKey {
   static String token = 'token';
-    static String id = 'id';
+  static String id = 'id';
 
   static String name = 'name';
   static String email = 'email';
   static String password = 'password';
   static String passwordConfirm = 'passwordConfirm';
 
+  static String priceEgp = "price_egp";
+  static String evaluation = "evaluation";
+  static String pic = "pic";
 }

@@ -1,4 +1,6 @@
 import 'package:climb_up/features/profile/data/models/profile_model.dart';
+import 'package:climb_up/features/profile/data/models/user_model.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
 abstract class ProfileRepo {
@@ -14,4 +16,6 @@ abstract class ProfileRepo {
     List<String> genders,
   );
   Future logOut(BuildContext context);
+
+  Future<Either<String,UserModel>> fetchUserData();
 }
