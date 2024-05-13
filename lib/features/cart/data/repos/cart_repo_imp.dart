@@ -4,6 +4,7 @@ import 'package:climb_up/core/errors/exceptions.dart';
 import 'package:climb_up/core/utils/constants.dart';
 import 'package:climb_up/core/utils/service_locator.dart';
 import 'package:climb_up/features/cart/data/models/cart_products_model.dart';
+import 'package:climb_up/features/cart/data/models/remove_from_cart_model.dart';
 import 'package:climb_up/features/cart/data/repos/cart_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -115,5 +116,17 @@ class CartRepoImp implements CartRepo {
     } on ServerException catch (e) {
       return left(e.errModel.message);
     }
+  }
+  
+  @override
+  Future<Either<String, String>> deleteCartProducts({required String productId})async {
+    try {
+  final response = await api.delete(EndPoint.removeFromCart(productId));
+  RemoveFromCartModel  msg = RemoveFromCartModel.fromJson(response);
+  return right(msg.message);
+} on ServerException catch (e) {
+return left(e.errModel.message);}
+
+
   }
 }

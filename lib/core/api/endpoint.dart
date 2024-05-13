@@ -1,9 +1,6 @@
-
-
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class EndPoint  {
-
+class EndPoint {
   static String baseUrl =
       "https://climb-upp-2c04b3f20fb9.herokuapp.com/api/v1/";
   static String signUp = "users/signup";
@@ -13,10 +10,15 @@ class EndPoint  {
   static String getAllProducts = "products/";
   static String getCartData = "cart/";
 
-static String addToCart(productId) {
+  static String removeFromCart(productId) {
+    return "cart/${productId}";
+  }
+
+  static String addToCart(productId) {
     return "products/${productId}/addtocart";
   }
-static String getUserData(id) {
+
+  static String getUserData(id) {
     return "users/$id";
   }
 
@@ -24,14 +26,13 @@ static String getUserData(id) {
   static String paymentAuth = "auth/tokens";
   static String acceptance = "acceptance/payment_keys";
   static String paymentBaseUrl = "https://accept.paymob.com/api/";
- 
+
 //   static String search(search) {
 //     return "everything?q=$search";
 //   }
 //  static String categories(category) {
 //     return "$topHeadlines?category=$category";
 //   }
- 
 }
 
 class PaymentApiKey {

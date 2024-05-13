@@ -17,6 +17,7 @@ abstract class CartRepo {
 
        Future<Either<String,CartProductsModel>> fetchCartProducts();
 
+       Future<Either<String,String>> deleteCartProducts({required String productId});
 
 }
 

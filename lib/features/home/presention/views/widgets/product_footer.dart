@@ -63,7 +63,7 @@ class ProductFooter extends StatelessWidget {
                 ),
                 const Spacer(),
                 state is AddproductToCartLoading
-                    ? CircularProgressIndicator()
+                    ? const CircularProgressIndicator()
                     : CustomButton(
                         labelName: call ? 'Add to cart' : "call center",
                         color: AppColors.kPrimaryColor,

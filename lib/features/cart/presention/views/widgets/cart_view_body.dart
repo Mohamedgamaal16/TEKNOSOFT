@@ -26,13 +26,18 @@ class CartViewBody extends StatelessWidget {
                 SliverList.builder(
                   itemCount: state.cartProductsModel.data.products.length,
                   itemBuilder: (context, index) {
-                    return  Padding(
+                    return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomCartItem(
-                          price: state.cartProductsModel.data.products[index].priceEGP.toDouble(),
-                          title: state.cartProductsModel.data.products[index].name,
-                          imageUrl:
-                              state.cartProductsModel.data.products[index].photos[0]),
+                        price: state
+                            .cartProductsModel.data.products[index].priceEGP
+                            .toDouble(),
+                        title:
+                            state.cartProductsModel.data.products[index].name,
+                        imageUrl: state
+                            .cartProductsModel.data.products[index].photos[0],
+                        id: state.cartProductsModel.data.products[index].id,
+                      ),
                     );
                   },
                 ),
