@@ -1,5 +1,5 @@
 import 'package:climb_up/core/utils/app_styles.dart';
-import 'package:climb_up/features/add_post/presentation/view_models/cubit/add_product_cubit.dart';
+import 'package:climb_up/features/add_post/presentation/view_models/add_product_cubit/add_product_cubit.dart';
 import 'package:climb_up/features/add_post/presentation/views/widgets/add_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,16 +7,6 @@ import 'package:image_picker/image_picker.dart';
 
 class UploadPhotos extends StatelessWidget {
   const UploadPhotos({super.key});
-
-  // XFile? test1;
-  //  test2, test3, test4;
-
-  // late List<XFile?> photos = [
-  //   test1,
-  //   test2,
-  //   test3,
-  //   test4,
-  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +29,12 @@ class UploadPhotos extends StatelessWidget {
                   ImagePicker().pickImage(source: ImageSource.gallery).then(
                       (value) => context
                           .read<AddProductCubit>()
-                          .uploadProfilePic(value!));
+                          .uploadProfilePic1(value!));
                 },
                 child: AddPhoto(
-                    test: context.read<AddProductCubit>().pic == null
+                    test: context.read<AddProductCubit>().pic1 == null
                         ? null
-                        : context.read<AddProductCubit>().pic),
+                        : context.read<AddProductCubit>().pic1),
               ),
               const SizedBox(
                 width: 16,
@@ -54,10 +44,10 @@ class UploadPhotos extends StatelessWidget {
                     ImagePicker().pickImage(source: ImageSource.gallery).then(
                         (value) => context
                             .read<AddProductCubit>()
-                            .uploadProfilePic(value!));
+                            .uploadProfilePic2(value!));
                   },
                   child: AddPhoto(
-                    test: context.read<AddProductCubit>().pic,
+                    test: context.read<AddProductCubit>().pic2,
                   )),
               const SizedBox(
                 width: 16,
@@ -67,10 +57,10 @@ class UploadPhotos extends StatelessWidget {
                     ImagePicker().pickImage(source: ImageSource.gallery).then(
                         (value) => context
                             .read<AddProductCubit>()
-                            .uploadProfilePic(value!));
+                            .uploadProfilePic3(value!));
                   },
                   child: AddPhoto(
-                    test: context.read<AddProductCubit>().pic,
+                    test: context.read<AddProductCubit>().pic3,
                   )),
               const SizedBox(
                 width: 16,
@@ -80,10 +70,10 @@ class UploadPhotos extends StatelessWidget {
                     ImagePicker().pickImage(source: ImageSource.gallery).then(
                         (value) => context
                             .read<AddProductCubit>()
-                            .uploadProfilePic(value!));
+                            .uploadProfilePic4(value!));
                   },
                   child: AddPhoto(
-                    test: context.read<AddProductCubit>().pic,
+                    test: context.read<AddProductCubit>().pic4,
                   )),
             ],
           )

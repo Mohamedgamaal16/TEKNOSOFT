@@ -1,27 +1,32 @@
-class ProductResponseModel {
+ class AddProductModel {
   final String status;
-  final Product data;
+  final ProductData data;
 
-  ProductResponseModel({
-    required this.status,
-    required this.data,
-  });
+  AddProductModel({required this.status, required this.data});
 
-  factory ProductResponseModel.fromJson(Map<String, dynamic> json) {
-    return ProductResponseModel(
+  factory AddProductModel.fromJson(Map<String, dynamic> json) {
+    return AddProductModel(
       status: json['status'],
-      data: Product.fromJson(json['data']['product']),
+      data: ProductData.fromJson(json['data']),
     );
   }
 }
 
+class ProductData {
+  final Product product;
 
+  ProductData({required this.product});
 
-
+  factory ProductData.fromJson(Map<String, dynamic> json) {
+    return ProductData(
+      product: Product.fromJson(json['product']),
+    );
+  }
+}
 
 class Product {
   final String name;
-  final String priceEGP;
+  final int priceEGP;
   final String description;
   final List<String> photos;
   final String id;
@@ -39,7 +44,7 @@ class Product {
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       name: json['name'],
-      priceEGP: json['price_egp'].toString(),
+      priceEGP: json['price_egp'],
       description: json['description'],
       photos: List<String>.from(json['photos']),
       id: json['_id'],
@@ -47,4 +52,3 @@ class Product {
     );
   }
 }
-

@@ -4,12 +4,18 @@ part of 'add_product_cubit.dart';
 sealed class AddProductState {}
 
 final class AddProductInitial extends AddProductState {}
-final class AddProductSucces extends AddProductState {}
+final class AddProductSuccess extends AddProductState {
+  final String status;
+
+  AddProductSuccess({required this.status});
+}
 final class AddProductLoading extends AddProductState {}
 final class AddProductFaliure extends AddProductState {
-
-  final String errMsg;
+    final String errMsg;
 
   AddProductFaliure({required this.errMsg});
+
 }
-final class UploadProfilePic extends AddProductState {}
+
+final class UploadPic extends AddProductState {}
+

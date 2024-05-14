@@ -1,6 +1,6 @@
 import 'package:climb_up/core/api/dio_consumer.dart';
 import 'package:climb_up/features/add_post/data/repo/add_product_repo_imp.dart';
-import 'package:climb_up/features/add_post/presentation/view_models/cubit/add_product_cubit.dart';
+import 'package:climb_up/features/add_post/presentation/view_models/add_product_cubit/add_product_cubit.dart';
 import 'package:climb_up/features/add_post/presentation/views/add_post_view.dart';
 import 'package:climb_up/features/cart/data/repos/cart_repo_imp.dart';
 import 'package:climb_up/features/cart/presention/view_models/fetch_cart_products_cubit/fetch_cart_products_cubit.dart';

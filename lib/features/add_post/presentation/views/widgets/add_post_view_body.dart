@@ -1,6 +1,6 @@
 import 'package:climb_up/core/utils/app_styles.dart';
 import 'package:climb_up/core/widgets/custom_input_field.dart';
-import 'package:climb_up/features/add_post/presentation/view_models/cubit/add_product_cubit.dart';
+import 'package:climb_up/features/add_post/presentation/view_models/add_product_cubit/add_product_cubit.dart';
 import 'package:climb_up/features/add_post/presentation/views/widgets/submit_buttons.dart';
 import 'package:climb_up/features/add_post/presentation/views/widgets/upload_photos.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class AddPostViewBody extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 32, bottom: 16),
+                    padding: const EdgeInsets.only(top: 32, bottom: 16),
                     child: CustomInputField(
                       hintText: 'write product Name',
                       labelText: 'product Name',
@@ -39,16 +39,16 @@ class AddPostViewBody extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
                     child: CustomInputField(
                         labelText: 'Description',
                         hintText: 'write post description',
                         minLines: 5,
                         maxLines: 10,
-                        controller: context.read<AddProductCubit>().descrption),
+                        controller: context.read<AddProductCubit>().description),
                   ),
                    Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
                     child: CustomInputField(
                         labelText: 'Price',
                         hintText: 'write product price',

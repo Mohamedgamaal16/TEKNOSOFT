@@ -1,6 +1,6 @@
 import 'package:climb_up/core/utils/app_styles.dart';
 import 'package:climb_up/core/widgets/custom_button.dart';
-import 'package:climb_up/features/add_post/presentation/view_models/cubit/add_product_cubit.dart';
+import 'package:climb_up/features/add_post/presentation/view_models/add_product_cubit/add_product_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,10 +11,10 @@ class SubmitButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AddProductCubit, AddProductState>(
       listener: (context, state) {
-        if (state is AddProductSucces) {
+        if (state is AddProductSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('proudct added successfully'),
+            SnackBar(
+              content: Text(state.status),
             ),
           );
         } else if (state is AddProductFaliure) {
@@ -38,18 +38,18 @@ class SubmitButtons extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-            state is AddProductLoading
-                        ? const CircularProgressIndicator()
-                        :   SizedBox(
-                height: MediaQuery.of(context).size.height * .05,
-                child: CustomButton(
-                  borderRadius: 8,
-                  onPressed: () {
-                    context.read<AddProductCubit>().addProduct();
-                  },
-                  labelName: 'Create',
-                ),
-              )
+              state is AddProductLoading
+                  ? const CircularProgressIndicator()
+                  : SizedBox(
+                      height: MediaQuery.of(context).size.height * .05,
+                      child: CustomButton(
+                        borderRadius: 8,
+                        onPressed: () {
+                          context.read<AddProductCubit>().addProduct();
+                        },
+                        labelName: 'Create',
+                      ),
+                    )
             ],
           ),
         );
