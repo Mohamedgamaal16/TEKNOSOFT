@@ -16,9 +16,11 @@ class CardDetailes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(materialProductModel.title,
-            style: AppStyles.poppinsStyleSemiBold16(context)
-                .copyWith(color: Colors.black)),
+        SizedBox(width: MediaQuery.of(context).size.width * .75,
+          child: Text(materialProductModel.title,
+              style: AppStyles.poppinsStyleSemiBold16(context)
+                  .copyWith(color: Colors.black),maxLines: 1,overflow: TextOverflow.ellipsis,),
+        ),
         const Spacer(),
         const Icon(
           FontAwesomeIcons.solidStar,

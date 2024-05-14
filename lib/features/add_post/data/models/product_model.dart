@@ -1,6 +1,7 @@
+//  class AddProductModel {
  class AddProductModel {
-  final String status;
-  final ProductData data;
+  String status;
+  ProductData data;
 
   AddProductModel({required this.status, required this.data});
 
@@ -13,7 +14,7 @@
 }
 
 class ProductData {
-  final Product product;
+  Product product;
 
   ProductData({required this.product});
 
@@ -25,16 +26,16 @@ class ProductData {
 }
 
 class Product {
-  final String name;
-  final int priceEGP;
-  final String description;
-  final List<String> photos;
-  final String id;
-  final int v;
+  String name;
+  double priceEgp;
+  String description;
+  List<String> photos;
+  String id;
+  int v;
 
   Product({
     required this.name,
-    required this.priceEGP,
+    required this.priceEgp,
     required this.description,
     required this.photos,
     required this.id,
@@ -44,9 +45,9 @@ class Product {
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       name: json['name'],
-      priceEGP: json['price_egp'],
+      priceEgp: json['price_egp'].toDouble(),
       description: json['description'],
-      photos: List<String>.from(json['photos']),
+      photos: List<String>.from(json['photos'].map((x) => x)),
       id: json['_id'],
       v: json['__v'],
     );

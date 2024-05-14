@@ -1,14 +1,14 @@
-class AuthErrorModel {
+class ErrorModel {
   final String status;
   final String message;
 
-  AuthErrorModel({
+  ErrorModel({
     required this.status,
     required this.message,
   });
 
-  factory AuthErrorModel.fromJson(Map<String, dynamic> json) {
-    return AuthErrorModel(
+  factory ErrorModel.fromJson(Map<String, dynamic> json) {
+    return ErrorModel(
       status: json['status'],
       message: json['message'],
     );

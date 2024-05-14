@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:climb_up/core/function/upload_image_to_api.dart';
 import 'package:climb_up/features/add_post/data/repo/add_product_repo.dart';
 import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
@@ -22,20 +23,22 @@ class AddProductCubit extends Cubit<AddProductState> {
           price: price.text,
           description: description.text,
           pic: pic1!);
+      print("===============================");
+      print(pic1!.path);
       response.fold((err) => emit(AddProductFaliure(errMsg: err)),
           (success) => emit(AddProductSuccess(status: success)));
-    } on Exception catch (e) {
+    }  catch (e) {
       if (e.toString() == 'Null check operator used on a null value') {
         emit(AddProductFaliure(errMsg: "Please fill the full data"));
       } else {
-                emit(AddProductFaliure(errMsg: e.toString()));
-
+        emit(AddProductFaliure(errMsg: e.toString()));
       }
     }
   }
 
-  uploadProfilePic1(XFile image) {
+  uploadProfilePic1(XFile image) async {
     pic1 = image;
+
     emit(UploadPic());
   }
 
