@@ -2,6 +2,7 @@ import 'package:climb_up/features/auth/presention/views/sign_in_view.dart';
 import 'package:climb_up/features/auth/presention/views/sign_up_view.dart';
 import 'package:climb_up/features/home/presention/view_models/home_cubit/home_cubit.dart';
 import 'package:climb_up/features/home/presention/views/home_view.dart';
+import 'package:climb_up/features/profile/presentation/views/about_page.dart';
 import 'package:climb_up/features/profile/presentation/views/change_passwod.dart';
 import 'package:climb_up/features/splash/presention/view_models/splash_cubit/splash_cubit.dart';
 import 'package:climb_up/features/splash/presention/views/splash_view.dart';
@@ -14,6 +15,7 @@ abstract class AppRouter {
   static const kSignUp = '/signUp';
   static const kHomeView = '/homeView';
   static const kChangePassword = '/changePassword';
+  static const kAboutPage = '/AboutPage';
 
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
@@ -26,6 +28,9 @@ abstract class AppRouter {
     GoRoute(
       path: kLogInView,
       builder: (context, state) => const SignInView(),
+    ), GoRoute(
+      path: kAboutPage,
+      builder: (context, state) => const AboutPage(),
     ),
     GoRoute(
       path: kSignUp,

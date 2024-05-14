@@ -22,7 +22,7 @@ class SignUpViewBody extends StatelessWidget {
           SharedPreferences prefs = await getIt.getAsync<SharedPreferences>();
           prefs.setBool(SharedPrefKeys.kSplashIsLoggedIn, true);
           if (context.mounted) {
-            GoRouter.of(context).push(AppRouter.kHomeView);
+            GoRouter.of(context).replace(AppRouter.kHomeView);
           }
         } else if (state is AuthFaliure) {
           ScaffoldMessenger.of(context).showSnackBar(

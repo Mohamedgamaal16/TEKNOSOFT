@@ -46,10 +46,13 @@ class ProfileTilesListView extends StatelessWidget {
                   GoRouter.of(context).push(AppRouter.kChangePassword);
                 },
               ),
-              const ProfileListTile(
+              ProfileListTile(
                 icon: FontAwesomeIcons.circleInfo,
                 title: 'About',
                 subTitle: '',
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kAboutPage);
+                },
               ),
               ProfileListTile(
                 icon: FontAwesomeIcons.arrowRightFromBracket,

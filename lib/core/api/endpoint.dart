@@ -9,6 +9,7 @@ class EndPoint {
 
   static String getAllProducts = "products/";
   static String getCartData = "cart/";
+  static String changePassword = "users/change-password";
 
   static String removeFromCart(productId) {
     return "cart/${productId}";
@@ -58,4 +59,11 @@ class ApiKey {
   static String priceEgp = "price_egp";
   static String evaluation = "evaluation";
   static String pic = "pic";
+
+  static String oldPassword = "oldPassword";
+
+  static String newPassword = "newPassword";
+
+
+
 }

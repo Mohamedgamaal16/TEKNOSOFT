@@ -14,8 +14,19 @@ class CartFooter extends StatelessWidget {
   final int totalPrice;
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PaymentCubit, PaymentState>(
-      
+    return BlocConsumer<PaymentCubit, PaymentState>(
+      listener: (context, state) {
+        if (state is PaymentSuccess) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return CardWebView(
+                totalPrice: totalPrice, paymentToken: state.paymentKey);
+          }));
+        } else if (state is PaymentFailure) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(state.errorMessage),
+          ));
+        }
+      },
       builder: (context, state) {
         return Container(
           color: Colors.white,
@@ -41,31 +52,20 @@ class CartFooter extends StatelessWidget {
               ),
               const Spacer(),
               state is PaymentLoading
-                        ? const CircularProgressIndicator()
-                        :  SizedBox(
-                height: MediaQuery.of(context).size.height * .07,
-                child: CustomButton(
-                  labelName: 'Check Out',
-                  color: AppColors.kPrimaryColor,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    context.read<PaymentCubit>().payWithPayMob(totalPrice: 2500);
-                    if (state is PaymentSuccess) {
-                      
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return CardWebView(
-                            totalPrice: totalPrice,
-                            paymentToken: state.paymentKey);
-                      }));
-                    } else if (state is PaymentFailure) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(state.errorMessage),
-                      ));
-                    }
-                  },
-                ),
-              ),
+                  ? const CircularProgressIndicator()
+                  : SizedBox(
+                      height: MediaQuery.of(context).size.height * .07,
+                      child: CustomButton(
+                        labelName: 'Check Out',
+                        color: AppColors.kPrimaryColor,
+                        textColor: Colors.white,
+                        onPressed: () {
+                          context
+                              .read<PaymentCubit>()
+                              .payWithPayMob(totalPrice: 2500);
+                        },
+                      ),
+                    ),
             ],
           ),
         );

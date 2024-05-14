@@ -17,5 +17,9 @@ abstract class ProfileRepo {
   );
   Future logOut(BuildContext context);
 
-  Future<Either<String,UserModel>> fetchUserData();
+  Future<Either<String, UserModel>> fetchUserData();
+  Future<Either<String, String>> changePassword(
+      {required String oldPassword,
+      required String newPassword,
+      required String confirmPassword});
 }
