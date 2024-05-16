@@ -5,7 +5,6 @@ import 'package:climb_up/core/errors/exceptions.dart';
 import 'package:climb_up/core/function/upload_image_to_api.dart';
 import 'package:climb_up/features/add_post/data/models/product_model.dart';
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:climb_up/core/api/api_consumer.dart';
 import 'package:climb_up/features/add_post/data/repo/add_product_repo.dart';
@@ -15,8 +14,6 @@ class AddProductRepoImp implements AddproductRepo {
   AddProductRepoImp({
     required this.api,
   });
-  static String imagePath =
-      '/data/user/0/com.example.climb_up/cache/71a0ffe1-dcb5-47c7-aad5-0e4c5992cba6/IMG_20240514_164904.jpg';
 
   @override
   Future<Either<String, String>> addProduct(
@@ -25,10 +22,23 @@ class AddProductRepoImp implements AddproductRepo {
       required String price,
       required String description,
       required XFile pic}) async {
-    // MultipartFile photoFiles = await uploadImageToAPI(pic);
-    String fileName = pic.path.split('/').last;
-
     try {
+      final photos = [
+        await uploadImageToAPI(pic),
+        if (pic2 != null) await uploadImageToAPI(pic2),
+        if (pic3 != null) await uploadImageToAPI(pic3),
+        if (pic4 != null) await uploadImageToAPI(pic4),
+      ];
+
+      if (pic2 != null) {
+        photos.add(await uploadImageToAPI(pic2));
+      }
+      if (pic3 != null) {
+        photos.add(await uploadImageToAPI(pic3));
+      }
+      if (pic4 != null) {
+        photos.add(await uploadImageToAPI(pic4));
+      }
       final response = await api.post(
         EndPoint.addProduct,
         isFormData: true,
@@ -36,21 +46,8 @@ class AddProductRepoImp implements AddproductRepo {
           "name": name,
           "price_egp": price,
           "description": description,
-          "photos":
-           await uploadImageToAPI(pic),
-
-          //      await MultipartFile.fromFile(
-          //   pic.path,
-          //   filename: fileName,
-          // ),
-          // await MultipartFile.fromFile(imagePath, filename: 'photos.jpg')
-
-          // [
-          // await uploadImageToAPI(pic),
-          // if (pic2 != null) await uploadImageToAPI(pic2),
-          // if (pic3 != null) await uploadImageToAPI(pic3),
-          // if (pic4 != null) await uploadImageToAPI(pic4),
-          // ],
+          "photos":photos
+          
         },
       );
       final data = AddProductModel.fromJson(response);

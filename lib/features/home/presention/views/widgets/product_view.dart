@@ -25,8 +25,8 @@ class ProductView extends StatelessWidget {
                         return ProductDisplay(
                           netWorkImage: true,
                           materialProductModel: MaterialProductModel(
-                              pics:
-                                  state.productDataModel.products[index].photos,
+                              pics:state.productDataModel.products[index].photos,
+                                  // state.productDataModel.products[index].photos,
                               title:
                                   state.productDataModel.products[index].name,
                               rate: "5",
@@ -42,7 +42,8 @@ class ProductView extends StatelessWidget {
                     child: CustomCard(
                       networkImage: true,
                       materialProductModel: MaterialProductModel(
-                          pics: state.productDataModel.products[index].photos,
+                          pics:state.productDataModel.products[index].photos,
+                          //  state.productDataModel.products[index].photos,
                           title: state.productDataModel.products[index].name,
                           rate: "5",
                           price: state.productDataModel.products[index].priceEGP

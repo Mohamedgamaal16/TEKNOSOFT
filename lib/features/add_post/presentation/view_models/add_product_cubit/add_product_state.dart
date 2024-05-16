@@ -8,6 +8,7 @@ final class AddProductSuccess extends AddProductState {
   final String status;
 
   AddProductSuccess({required this.status});
+  
 }
 final class AddProductLoading extends AddProductState {}
 final class AddProductFaliure extends AddProductState {
