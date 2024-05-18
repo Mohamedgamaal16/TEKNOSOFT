@@ -62,7 +62,7 @@ class CartFooter extends StatelessWidget {
                         onPressed: () {
                           context
                               .read<PaymentCubit>()
-                              .payWithPayMob(totalPrice: 2500);
+                              .payWithPayMob(totalPrice: totalPrice);
                         },
                       ),
                     ),
