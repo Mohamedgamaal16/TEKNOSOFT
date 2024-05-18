@@ -30,15 +30,7 @@ class AddProductRepoImp implements AddproductRepo {
         if (pic4 != null) await uploadImageToAPI(pic4),
       ];
 
-      if (pic2 != null) {
-        photos.add(await uploadImageToAPI(pic2));
-      }
-      if (pic3 != null) {
-        photos.add(await uploadImageToAPI(pic3));
-      }
-      if (pic4 != null) {
-        photos.add(await uploadImageToAPI(pic4));
-      }
+     
       final response = await api.post(
         EndPoint.addProduct,
         isFormData: true,

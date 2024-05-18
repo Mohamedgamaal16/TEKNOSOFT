@@ -23,8 +23,7 @@ class AddProductCubit extends Cubit<AddProductState> {
           price: price.text,
           description: description.text,
           pic: pic1!);
-      print('====================================================================='); 
-print("success");
+     
       response.fold((err) => emit(AddProductFaliure(errMsg: err)),
           (success) => emit(AddProductSuccess(status: success)));
     }  catch (e) {
